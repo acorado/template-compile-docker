@@ -31,7 +31,7 @@ def hello() -> str:
     # https://cloud.google.com/run/docs/logging#correlate-logs
     logger.info("Child logger with trace Id.")
 
-    return "<h1>Hello, Worldssss!</h1>"
+    return "<h1>Hola!</h1><h2>Deployment n1!</h2>"
 
 
 def shutdown_handler(signal_int: int, frame: FrameType) -> None:
