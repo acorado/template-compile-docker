@@ -31,14 +31,8 @@ def hello() -> str:
     # https://cloud.google.com/run/docs/logging#correlate-logs
     logger.info("Child logger with trace Id.")
 
-    return "<iframe src='https://www.tella.tv/create/mobile-app-demo' width='900' height='700' allow='fullscreen'></iframe>"
-@app.route("/index")
-def index() -> str:
-    # Use basic logging with custom fields
+    return "index.html"
 
-    # https://cloud.google.com/run/docs/logging#correlate-logs
-
-    return render_template('index.html')
 
 def shutdown_handler(signal_int: int, frame: FrameType) -> None:
     logger.info(f"Caught Signal {signal.strsignal(signal_int)}")
