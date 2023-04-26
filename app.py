@@ -16,7 +16,7 @@ import signal
 import sys
 from types import FrameType
 
-from flask import Flask
+from flask import Flask, render_template
 
 from utils.logging import logger
 
@@ -32,7 +32,15 @@ def hello() -> str:
     logger.info("Child logger with trace Id.")
 
     return "<iframe src='https://www.tella.tv/create/mobile-app-demo' width='900' height='700' allow='fullscreen'></iframe>"
+@app.route("/index")
+def indx() -> str:
+    # Use basic logging with custom fields
+    logger.info(logField="custom-entry", arbitraryField="custom-entry")
 
+    # https://cloud.google.com/run/docs/logging#correlate-logs
+    logger.info("Child logger with trace Id.")
+
+    return render_template('Index.html')
 
 def shutdown_handler(signal_int: int, frame: FrameType) -> None:
     logger.info(f"Caught Signal {signal.strsignal(signal_int)}")
