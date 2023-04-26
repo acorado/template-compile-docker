@@ -33,12 +33,10 @@ def hello() -> str:
 
     return "<iframe src='https://www.tella.tv/create/mobile-app-demo' width='900' height='700' allow='fullscreen'></iframe>"
 @app.route("/index")
-def indx() -> str:
+def index() -> str:
     # Use basic logging with custom fields
-    logger.info(logField="custom-entry", arbitraryField="custom-entry")
 
     # https://cloud.google.com/run/docs/logging#correlate-logs
-    logger.info("Child logger with trace Id.")
 
     return render_template('index.html')
 
